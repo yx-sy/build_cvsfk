@@ -41,7 +41,7 @@ public class DyGang extends Spider {
     //   http://www.dygangs.net
     //   http://www.dygangs.me
     //   https://www.dygang.tv
-    private final String siteUrl = "http://www.dygangs.me";
+    private final String siteUrl = "https://www.dygangs.net";
     private String nextSearchUrlPrefix;
     private String nextSearchUrlSuffix;
 
@@ -219,8 +219,8 @@ public class DyGang extends Spider {
         String link = siteUrl + vodId;
         String html = req(link, getHeader());
         String remark = "上映日期：" + removeHtmlTag(find(Pattern.compile("◎上映日期　(.*?)<br"), html));
-        //String remark = find(Pattern.compile("◎片　　长　(.*?)<br"), html);
-        //String remark = find(Pattern.compile("◎语　　言　(.*?)<br"), html);
+        //String remark = find(Pattern.compile("◎片　　长　(.*?)
+        //String remark = find(Pattern.compile("◎语　　言　(.*?)
         String actor = getActor(html);
         String director = getDirector(html);
         String brief = removeHtmlTag(getBrief(html)).replaceAll("　　　", "").replaceAll("　　", "");
@@ -265,7 +265,7 @@ public class DyGang extends Spider {
 
     @Override
     public String searchContent(String key, boolean quick, String pg) throws Exception {
-        String searchUrl = "http://www.dygangs.me/e/search/index.php";
+        String searchUrl = "https://www.dygangs.net/e/search/index.php";
         String html = "";
         if ("1".equals(pg)) {
             String requestBody = "tempid=1&tbname=article&keyboard=" + URLEncoder.encode(key, "GBK") + "&show=title%2Csmalltext&Submit=%CB%D1%CB%F7";
@@ -278,8 +278,8 @@ public class DyGang extends Spider {
                     .header("Cache-Control", "max-age=0")
                     .header("Connection", "keep-alive")
                     .header("Content-Type", "application/x-www-form-urlencoded")
-                    .header("Origin", "http://www.dygangs.me")
-                    .header("Referer", "http://www.dygangs.me/")
+                    .header("Origin", "https://www.dygangs.net")
+                    .header("Referer", "https://www.dygangs.net/")
                     .header("Upgrade-Insecure-Requests", "1")
                     .header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
                     .build();
