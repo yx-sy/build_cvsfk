@@ -19,7 +19,7 @@
     }
   ],
 
-  "wallpaper": "",
+  "wallpaper": "https://bing.img.run/rand.php",
 
   "sites": [
     {"key":"csp_Xl720","name":"磁力 | 迅雷电影天堂","type":3,"api":"csp_Xl720","searchable":1,"playerType":1,"timeout":120},
@@ -51,15 +51,6 @@
     {"key":"drpy_两个BT","name":"影视 | 两个BT[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/两个BT.js"},
     {"key":"drpy_怡萱动漫","name":"动漫 | 怡萱[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/怡萱动漫.js"},
 
-    {"key":"索尼资源","name":"影视 | 索尼资源采集","type":1,"api":"https://suoniapi.com/api.php/provide/vod/",
-      "categories": ["动作片", "喜剧片", "爱情片", "科幻片", "恐怖片", "剧情片", "战争片", "纪录片", "动画片", "国产剧", "欧美剧", "韩剧", "日剧", "港剧", "台剧", "泰剧", "海外剧", "大陆综艺", "日韩综艺", "港台综艺", "欧美综艺", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫"]
-    },
-    {"key":"量子资源","name":"影视 | 量子资源采集","type":1,"api":"https://cj.lziapi.com/api.php/provide/vod/",
-      "categories": ["动作片", "喜剧片", "科幻片", "恐怖片", "爱情片", "剧情片", "战争片", "记录片", "国产剧", "欧美剧", "香港剧", "韩国剧", "台湾剧", "日本剧", "海外剧", "泰国剧", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺"]
-    },
-    {"key":"非凡资源","name":"影视 | 非凡资源采集","type":1,"api":"http://cj.ffzyapi.com/api.php/provide/vod/",
-      "categories": ["动作片", "喜剧片", "科幻片", "恐怖片", "爱情片", "剧情片", "战争片", "记录片", "国产剧", "欧美剧", "香港剧", "韩国剧", "台湾剧", "日本剧", "海外剧", "泰国剧", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺"]
-    },
     {"key":"push_agent","name":"推送(播放页链接或磁力)","type":3,"api":"csp_PushAgent","searchable":0,"playerType":1, "timeout":60}
   ],
 
