@@ -1,12 +1,10 @@
 package com.github.catvod.spider;
 
-import com.github.catvod.crawler.Spider;
-//import com.github.catvod.net.OkHttp;
-import com.github.catvod.utils.okhttp.OkHttpUtil;
+import android.content.Context;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.github.catvod.crawler.Spider;
+import com.github.catvod.net.OkHttp;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -23,6 +21,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * @author zhixc
@@ -60,8 +62,7 @@ public class Xunlei8 extends Spider {
     }
 
     private OkHttpClient okClient() {
-        //return OkHttp.client();
-        return OkHttpUtil.defaultClient();
+        return OkHttp.client();
     }
 
     private String find(Pattern pattern, String html) {
