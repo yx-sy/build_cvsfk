@@ -31,14 +31,11 @@
     {"key":"本地","name":"本地文件","type":3,"api":"csp_LocalFileV2","searchable":0,"playerType":1},
     {"key":"本地2","name":"本地文件(不显示隐藏文件)","type":3,"api":"csp_LocalFileV2","ext": "showAllFile=false","searchable":0,"playerType":1},
     {"key":"巴士","name":"动漫 | 巴士","type":3,"api": "csp_Dm84","searchable":1},
-    {"key":"星易影","name":"搜索 | 星易影","type":3,"api":"csp_XingYiYing","searchable":1},
     {"key":"Anime1","name":"动漫 | Anime1","type":3,"api":"csp_Anime1","searchable":1},
-    {"key":"Voflix","name":"影视 | Voflix","type":3,"api":"csp_Voflix","searchable":1,"ext":"https://www.voflix.vip/"},
     {"key":"Live2Vod","name":"直播 | 电视","type":3,"api":"csp_Live2Vod","searchable":0,"changeable":0,
      "ext":"南风$https://ghproxy.liuzhicong.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt#yuanzl77$https://ghproxy.liuzhicong.com/https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt&&&https://img1.dd.ci/file/08b8a048adf5d333c6030.png"
     },
     {"key":"Live2Vod2","name":"直播 | 电视(远程配置版)","type":3,"api":"csp_Live2Vod","ext":"./other/json/live.json","searchable":0,"changeable":0},
-    {"key":"Yj1211","name":"直播 | 综合","type":3,"api":"csp_Yj1211","searchable":1,"changeable":0},
     {"key":"V2_cokemv","name":"影视 | cokemv[V2]","type":3,"api":"csp_AppYsV2","searchable":1,"ext":"https://cokemv.co/xgapp.php/v2/"},
     {"key":"360","name":"影视 | 360","type":3,"api":"csp_SP360","searchable":1},
     {"key":"IQIYI","name":"影视 | IQIYI","type":3,"api":"csp_IQIYI","searchable":1},
@@ -59,8 +56,10 @@
     {"name":"Web聚合","type":3,"url": "Web"},
     {"name":"Json并发","type":2,"url": "Parallel"},
     {"name":"Json轮询","type":2,"url": "Sequence"},
-    {"name":"综合","type":0,"url": "https://jx.jsonplayer.com/player/?url="},
-    {"name":"虾米","type":0,"url": "https://jx.xmflv.com/?url="}
+    {"name":"夜幕","type":0,"url": "https://www.yemu.xyz/?url="},
+    {"name":"虾米","type":0,"url": "https://jx.xmflv.com/?url="},
+    {"name":"M3U8TV","type":0,"url": "https://jx.m3u8.tv/jiexi/?url="},
+    {"name":"m1907","type":0,"url": "https://im1907.top/?jx="}
   ],
 
   "flags": ["youku", "qq", "QQ", "iqiyi", "qiyi", "letv", "sohu", "tudou", "pptv", "PPTV", "mgtv", "wasu", "bilibili", "xmm", "xigua", "m1905"],
