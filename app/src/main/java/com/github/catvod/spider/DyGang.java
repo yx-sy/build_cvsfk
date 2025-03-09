@@ -4,7 +4,14 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.github.catvod.crawler.Spider;
+import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.net.OkHttp;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,12 +30,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
 /**
  * @author zhixc
  * 电影港
@@ -41,10 +42,10 @@ public class DyGang extends Spider {
 
     //  地址发布：https://www.dygang.me/
     //  可用的域名：
-    //   http://www.dygangs.net
-    //   http://www.dygangs.me
+    //   https://www.dygangs.net
+    //   https://www.dygangs.me
     //   https://www.dygang.tv
-    private final String siteUrl = "http://www.dygangs.me";
+    private final String siteUrl = "https://www.dygangs.me";
     private String nextSearchUrlPrefix;
     private String nextSearchUrlSuffix;
 
@@ -76,7 +77,7 @@ public class DyGang extends Spider {
     }
 
     private String req(Response response) throws Exception {
-        if (!response.isSuccessful()) return "";
+        if (!response.isSuccessful() || response.body() == null) return "";
         byte[] bytes = response.body().bytes();
         response.close();
         return new String(bytes, "GBK");
@@ -114,8 +115,7 @@ public class DyGang extends Spider {
 
     private String getActor(String html) {
         String actor = find(Pattern.compile("◎演　　员　(.*?)</p", Pattern.DOTALL), html);
-        if ("".equals(actor))
-            actor = find(Pattern.compile("◎主　　演　(.*?)</p", Pattern.DOTALL), html);
+        if ("".equals(actor)) actor = find(Pattern.compile("◎主　　演　(.*?)</p", Pattern.DOTALL), html);
         return actor.replaceAll("&middot;", "·").replaceAll("\r\n", "").replaceAll("<br />", "").replaceAll("&nbsp;", "").replaceAll("　　　　 　", " / ").replaceAll("　　　　　 ", " / ").replaceAll("　　　　　　", " / ");
     }
 
@@ -200,10 +200,8 @@ public class DyGang extends Spider {
 
     @Override
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) throws Exception {
-        if ("my_dianying".equals(tid))
-            tid = extend.get("cateId") == null ? "ys" : extend.get("cateId");
-        if ("my_dianshiju".equals(tid))
-            tid = extend.get("cateId") == null ? "dsj" : extend.get("cateId");
+        if ("my_dianying".equals(tid)) tid = extend.get("cateId") == null ? "ys" : extend.get("cateId");
+        if ("my_dianshiju".equals(tid)) tid = extend.get("cateId") == null ? "dsj" : extend.get("cateId");
         String cateUrl = siteUrl + "/" + tid;
         if (!"1".equals(pg)) cateUrl += "/index_" + pg + ".htm";
         String html = req(cateUrl, getHeader());
@@ -270,7 +268,7 @@ public class DyGang extends Spider {
 
     @Override
     public String searchContent(String key, boolean quick, String pg) throws Exception {
-        String searchUrl = "http://www.dygangs.me/e/search/index.php";
+        String searchUrl = siteUrl+"/e/search/index.php";
         String html = "";
         if ("1".equals(pg)) {
             String requestBody = "tempid=1&tbname=article&keyboard=" + URLEncoder.encode(key, "GBK") + "&show=title%2Csmalltext&Submit=%CB%D1%CB%F7";
@@ -283,8 +281,8 @@ public class DyGang extends Spider {
                     .header("Cache-Control", "max-age=0")
                     .header("Connection", "keep-alive")
                     .header("Content-Type", "application/x-www-form-urlencoded")
-                    .header("Origin", "http://www.dygangs.me")
-                    .header("Referer", "http://www.dygangs.me/")
+                    .header("Origin", siteUrl)
+                    .header("Referer", siteUrl+"/")
                     .header("Upgrade-Insecure-Requests", "1")
                     .header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
                     .build();
